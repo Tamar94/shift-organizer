@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Shift Organizer</string>
+    <string name="APP_ID">00E6505B-DF45-7CBD-FF79-2D3F276CFC00</string>
+    <string name="SECURITY_KEY">59EBEF10-9BA0-CFCC-FF3E-0D4DB2B09500</string>
+    <string name="VERSION_NAME">v1</string>
+    <string name="SHARED_PREFERENCES_NAME">firstConnected</string>
+    <string-array name="days_array">
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </string-array>
+</resources>

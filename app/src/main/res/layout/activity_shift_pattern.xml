@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Spinner
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/shiftPatt_daysSpin"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"/>
+
+
+    <RelativeLayout
+        android:id="@+id/shiftPatt_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        >
+        <Button
+            android:text="Done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/shftPatt_doneBtn"
+            android:layout_centerInParent="true"
+            android:onClick="done"
+            />
+        <ImageView
+            android:id="@+id/homeIcon_shiftPattern"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:background="@mipmap/home_icon"/>
+    </RelativeLayout>
+
+<RelativeLayout
+    android:layout_marginLeft="45dp"
+    android:layout_marginRight="45dp"
+    android:id="@+id/shiftPatt_textTimes"
+    android:layout_below="@id/shiftPatt_daysSpin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Time"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="End Time"
+        android:layout_gravity="center"
+        android:layout_alignParentRight="true"
+        />
+</RelativeLayout>
+
+    <RelativeLayout
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_below="@id/shiftPatt_textTimes"
+            android:id="@+id/start_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <com.example.yaish8.shiftorginizer.Utils.NumberPickerView
+                android:layout_width="60dp"
+                android:layout_height="90dp"
+                android:id="@+id/hours_start"
+                android:layout_marginLeft="5dp"
+                />
+            <TextView
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_centerInParent="true"
+                android:layout_toRightOf="@id/hours_start"/>
+            <com.example.yaish8.shiftorginizer.Utils.NumberPickerView
+                android:layout_width="60dp"
+                android:layout_height="90dp"
+                android:id="@+id/min_start"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/hours_start"
+             />
+        </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/shiftPatt_textTimes"
+        android:id="@+id/end_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.example.yaish8.shiftorginizer.Utils.NumberPickerView
+            android:layout_width="60dp"
+            android:layout_height="90dp"
+            android:id="@+id/hours_end"
+            android:layout_marginLeft="5dp"
+            />
+        <TextView
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/hours_end"
+            />
+        <com.example.yaish8.shiftorginizer.Utils.NumberPickerView
+            android:layout_width="60dp"
+            android:layout_height="90dp"
+            android:id="@+id/min_end"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/hours_end"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/shiftPatt_employNum"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/end_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Employees Number:"/>
+        <EditText
+            android:id="@+id/shiftPatt_employInput"
+            android:inputType="number"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shiftPatt_employNum"
+        android:id="@+id/shiftPatt_editBtns">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:onClick="addShift"
+        android:id="@+id/shiftPatt_addBtn" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="save"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/shiftPatt_saveEditBtn"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cancel"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/shiftPatt_cancelEditBtn"
+        android:visibility="gone"
+        />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/shiftPatt_list"
+        android:layout_below="@id/shiftPatt_editBtns"
+        android:layout_above="@+id/shiftPatt_footer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</RelativeLayout>
+
+

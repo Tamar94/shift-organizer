@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="40dp"
+    android:background="@mipmap/back_register">
+
+    <TextView
+        android:id="@+id/register_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#FFF"
+        android:text="Register"
+        android:textSize="24sp"/>
+    <EditText
+        android:id="@+id/register_firstNameEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_header"
+        android:hint="First name"
+        android:textColorHint="#999"
+        android:textColor="#FFF"
+        android:layout_alignParentLeft="true"/>
+    <EditText
+        android:id="@+id/register_lastNameEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_firstNameEdit"
+        android:hint="Last name"
+        android:textColor="#FFF"
+        android:textColorHint="#999"
+        android:layout_alignParentLeft="true"/>
+    <EditText
+        android:id="@+id/register_emailEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_lastNameEdit"
+        android:hint="Email"
+        android:textColor="#FFF"
+        android:textColorHint="#999"
+        android:layout_alignParentLeft="true"
+        android:inputType="textEmailAddress" />
+    <EditText
+        android:id="@+id/register_passwordEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:layout_below="@id/register_emailEdit"
+        android:hint="Password"
+        android:textColor="#FFF"
+        android:textColorHint="#999"
+        android:layout_alignParentLeft="true"/>
+    <EditText
+        android:id="@+id/register_rePasswordEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:layout_below="@id/register_passwordEdit"
+        android:hint="Retype password"
+        android:textColorHint="#999"
+        android:textColor="#FFF"
+        android:layout_alignParentLeft="true"/>
+    <EditText
+        android:id="@+id/register_idEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_rePasswordEdit"
+        android:hint="ID"
+        android:textColorHint="#999"
+        android:textColor="#FFF"
+        android:layout_alignParentLeft="true"
+        android:inputType="number" />
+    <EditText
+        android:id="@+id/register_companyEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_idEdit"
+        android:hint="Company name"
+        android:textColorHint="#999"
+        android:textColor="#FFF"
+        android:layout_alignParentLeft="true"/>
+    <EditText
+        android:id="@+id/register_phoneEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_companyEdit"
+        android:hint="Phone number"
+        android:textColorHint="#999"
+        android:textColor="#FFF"
+        android:layout_alignParentLeft="true"
+        android:inputType="number" />
+    <EditText
+        android:id="@+id/register_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_phoneEdit"
+        android:hint="Address"
+        android:textColorHint="#999"
+        android:textColor="#FFF"
+        android:layout_alignParentLeft="true"/>
+    <EditText
+        android:id="@+id/register_birthDay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_address"
+        android:hint="Birthday (dd/MM/YYYY)"
+        android:textColorHint="#999"
+        android:textColor="#FFF"
+        android:layout_alignParentLeft="true"
+        android:inputType="date" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_birthDay"
+        android:layout_alignParentRight="true"
+        android:text="Done"
+        android:background="@drawable/selector_xml_btn_yellow"
+        android:onClick="registerBtn"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:text="back"
+        android:layout_below="@id/register_birthDay"
+        android:background="@drawable/selector_xml_btn_yellow"
+        android:onClick="goBackBtn"/>
+    <RelativeLayout
+        android:id="@+id/register_loadingPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:gravity="center" >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true" />
+    </RelativeLayout>
+</RelativeLayout>
+</ScrollView>

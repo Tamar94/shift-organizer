@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Edit Profile" android:id="@+id/menu_employeeEditProfile"/>
+    <item android:title="Contact List" android:id="@+id/menu_employeeContactList"/>
+    <item android:title="Shift Requests" android:id="@+id/menu_employeeShiftRequest"/>
+    <item android:title="Log Out" android:id="@+id/menu_employeeLogOut"/>
+</menu>
