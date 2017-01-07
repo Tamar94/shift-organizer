@@ -3,49 +3,42 @@
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="40dp"
-    android:background="@mipmap/back_login">
+    android:layout_margin="20dp"
+    >
 
-    <TextView
-        android:id="@+id/login_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"/>
+   <ImageView
+       android:layout_centerHorizontal="true"
+       android:id="@+id/login_header"
+       android:layout_width="437px"
+       android:layout_height="357px"
+       android:background="@mipmap/icon"/>
     <EditText
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/login_header"
+        android:drawableLeft="@drawable/account"
+        style="@style/InputsLogin"
         android:id="@+id/login_userEdit"
         android:layout_width="match_parent"
-        android:layout_alignParentLeft="true"
-        android:ems="10"
-        android:drawableLeft="@mipmap/account"
-        android:layout_marginTop="170dp"
-        android:textColor="#FFF"
-        android:paddingLeft="0dp"
         android:drawablePadding="5dp"
-        android:textColorHint="#999"
         android:layout_height="wrap_content"
-        android:layout_below="@id/login_header"
         android:hint="Username"/>
     <EditText
+        style="@style/InputsLogin"
         android:id="@+id/login_passEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:ems="10"
-        android:drawableLeft="@mipmap/lock"
-        android:layout_alignParentLeft="true"
+        android:drawableLeft="@drawable/lock"
         android:hint="Password"
         android:layout_marginTop="10dp"
-        android:textColor="#FFF"
-        android:paddingLeft="0dp"
         android:drawablePadding="5dp"
-        android:textColorHint="#999"
         android:layout_below="@id/login_userEdit"/>
     <Button
         android:id="@+id/login_loginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30sp"
-        android:background="@drawable/selector_xml_btn_yellow"
+        android:background="@drawable/btn"
         android:layout_below="@id/login_passEdit"
         android:gravity="center"
         android:text="login"
@@ -56,11 +49,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20sp"
-        android:textColor="#FFF"
+        android:textColor="#4F464E"
         android:gravity="center_horizontal"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_below="@id/login_loginBtn"
-        android:text="Admins Register"
+        android:text="Register Your Company!"
         android:onClick="goToRegister"/>
 
     <RelativeLayout

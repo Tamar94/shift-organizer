@@ -59,29 +59,28 @@ public class WorkArrange {
 
     public void sendNewArrange(Map<String, String>[] newWorkArrange)
     {
-       Map<String, String> dayArrange;
-        for (int i=0; i<newWorkArrange.length; i++)
-       {
-           //get this day arrange
-           dayArrange = newWorkArrange[i];
-           StringBuilder sb = new StringBuilder();
-           if (dayArrange!=null)if (!dayArrange.isEmpty())
-           {
-               Set<Map.Entry<String,String>> entrySet = dayArrange.entrySet();
-               Iterator iterator = entrySet.iterator();
-               Map.Entry<String, String> temp;
-               //put all the shift & chosen employees for this day in String
-               while (iterator.hasNext())
-               {
-                   temp = (Map.Entry<String, String>)iterator.next();
-                   sb.append(temp.getKey()+"#"+temp.getValue()+"!");
-               }
-               sb.deleteCharAt(sb.length()-1);
-               //save this day
-               saveDayArrange(sb.toString(), i);
-               sb = new StringBuilder();
-           }
-       }
+      if (newWorkArrange!=null) {
+          Map<String, String> dayArrange;
+          for (int i = 0; i < newWorkArrange.length; i++) {
+              //get this day arrange
+              dayArrange = newWorkArrange[i];
+              StringBuilder sb = new StringBuilder();
+              if (dayArrange != null) if (!dayArrange.isEmpty()) {
+                  Set<Map.Entry<String, String>> entrySet = dayArrange.entrySet();
+                  Iterator iterator = entrySet.iterator();
+                  Map.Entry<String, String> temp;
+                  //put all the shift & chosen employees for this day in String
+                  while (iterator.hasNext()) {
+                      temp = (Map.Entry<String, String>) iterator.next();
+                      sb.append(temp.getKey() + "#" + temp.getValue() + "!");
+                  }
+                  sb.deleteCharAt(sb.length() - 1);
+                  //save this day
+                  saveDayArrange(sb.toString(), i);
+                  sb = new StringBuilder();
+              }
+          }
+      }
 
         EmailSendingToAll.sendEmailToAll(CONTEXT);
     }

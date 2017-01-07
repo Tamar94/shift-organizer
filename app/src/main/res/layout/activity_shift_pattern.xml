@@ -3,51 +3,59 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+    <TextView
+        style="@style/Headers"
+        android:id="@+id/shiftPatt_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Edit Your Shift Pattern"
+        />
 
     <Spinner
+        android:layout_below="@id/shiftPatt_header"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/spinner"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/shiftPatt_daysSpin"
-        android:layout_marginTop="25dp"
         android:layout_marginBottom="10dp"/>
-
 
     <RelativeLayout
         android:id="@+id/shiftPatt_footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="5dp"
         >
         <Button
+            android:background="@drawable/btn"
             android:text="Done"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/shftPatt_doneBtn"
-            android:layout_centerInParent="true"
+           android:layout_centerHorizontal="true"
             android:onClick="done"
             />
         <ImageView
+            android:layout_marginTop="20dp"
             android:id="@+id/homeIcon_shiftPattern"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="@drawable/home_icon"
             android:layout_alignParentRight="true"
-            android:background="@mipmap/home_icon"/>
+           />
     </RelativeLayout>
 
 <RelativeLayout
-    android:layout_marginLeft="45dp"
-    android:layout_marginRight="45dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
     android:id="@+id/shiftPatt_textTimes"
     android:layout_below="@id/shiftPatt_daysSpin"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TextView
-        android:textSize="20sp"
+        style="@style/SubHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Start Time"
@@ -55,7 +63,7 @@
         />
 
     <TextView
-        android:textSize="20sp"
+        style="@style/SubHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="End Time"
@@ -73,8 +81,8 @@
             android:layout_height="wrap_content">
 
         <com.example.yaish8.shiftorginizer.Utils.NumberPickerView
-                android:layout_width="60dp"
-                android:layout_height="90dp"
+                android:layout_width="40dp"
+                android:layout_height="70dp"
                 android:id="@+id/hours_start"
                 android:layout_marginLeft="5dp"
                 />
@@ -88,8 +96,8 @@
                 android:layout_centerInParent="true"
                 android:layout_toRightOf="@id/hours_start"/>
             <com.example.yaish8.shiftorginizer.Utils.NumberPickerView
-                android:layout_width="60dp"
-                android:layout_height="90dp"
+                android:layout_width="40dp"
+                android:layout_height="70dp"
                 android:id="@+id/min_start"
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@id/hours_start"
@@ -106,8 +114,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <com.example.yaish8.shiftorginizer.Utils.NumberPickerView
-            android:layout_width="60dp"
-            android:layout_height="90dp"
+            android:layout_width="40dp"
+            android:layout_height="70dp"
             android:id="@+id/hours_end"
             android:layout_marginLeft="5dp"
             />
@@ -121,8 +129,8 @@
             android:layout_toRightOf="@id/hours_end"
             />
         <com.example.yaish8.shiftorginizer.Utils.NumberPickerView
-            android:layout_width="60dp"
-            android:layout_height="90dp"
+            android:layout_width="40dp"
+            android:layout_height="70dp"
             android:id="@+id/min_end"
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@id/hours_end"
@@ -136,7 +144,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <TextView
-            android:textSize="20sp"
+            style="@style/SubHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Employees Number:"/>
@@ -153,6 +161,7 @@
         android:layout_below="@id/shiftPatt_employNum"
         android:id="@+id/shiftPatt_editBtns">
     <Button
+        android:background="@drawable/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="add"
@@ -162,6 +171,7 @@
         android:id="@+id/shiftPatt_addBtn" />
 
     <Button
+        android:background="@drawable/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="save"
@@ -173,6 +183,7 @@
         android:visibility="gone"
         />
     <Button
+        android:background="@drawable/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="cancel"

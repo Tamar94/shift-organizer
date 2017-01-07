@@ -90,7 +90,7 @@ public class ContactListAdminActivity extends AppCompatActivity {
         mySpinnerItems.add("Choose Contact");
         for (String name : spinnerList) mySpinnerItems.add(name);
         ArrayAdapter arrayAdapter = new ArrayAdapter(ContactListAdminActivity.this, R.layout.spinner_item_mainscreen,mySpinnerItems);
-        arrayAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        arrayAdapter.setDropDownViewResource(R.layout.spinner_item_mainscreen);
         spinner.setAdapter(arrayAdapter);
         spinner.setOnItemSelectedListener(itemSelectedListener());
     }

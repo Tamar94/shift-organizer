@@ -2,29 +2,43 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_shift_requests"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+
+
+    <TextView
+        style="@style/Headers"
+        android:id="@+id/shiftReq_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Send Your Requests"
+        android:paddingBottom="10dp"/>
 
     <RelativeLayout
         android:id="@+id/shiftReq_footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="5dp"
+
         >
         <Button
-            android:text="Done"
+            android:text="send"
+            android:background="@drawable/btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
             android:id="@+id/shftReq_doneBtn"
             android:onClick="saveRequests"
             />
         <ImageView
+            android:layout_marginTop="30dp"
             android:id="@+id/homeIcon_shiftRequest"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="@drawable/home_icon"
             android:layout_alignParentRight="true"
-            android:background="@mipmap/home_icon"/>
+            />
 
     </RelativeLayout>
 
@@ -43,6 +57,8 @@
     </RelativeLayout>
 
     <ExpandableListView
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/shiftReq_header"
         android:id="@+id/shiftReq_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -52,7 +68,10 @@
         android:id="@+id/shiftReq_loadingPanel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center" >
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/shiftReq_sentReq"
+        android:layout_toEndOf="@+id/shiftReq_sentReq">
 
         <ProgressBar
             android:layout_width="wrap_content"

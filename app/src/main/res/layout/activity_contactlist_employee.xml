@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
+    android:layout_margin="20dp"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
+        style="@style/Headers"
         android:id="@+id/contact2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:text="Contact List users"
+        android:text="Contact List"
         android:layout_alignParentTop="true"
         android:gravity="center"
-        android:textColor="#0b3dd2"/>
+       />
 
     <ImageView
         android:id="@+id/homeIconEmployee"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:background="@drawable/home_icon"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:background="@mipmap/home_icon"/>
+       />
     <ListView
         android:id="@+id/listView_user"
         android:layout_width="match_parent"

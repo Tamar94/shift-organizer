@@ -35,7 +35,8 @@ public class NumberPickerView extends NumberPicker{
 
         private void updateView(View view) {
             if(view instanceof EditText){
-                ((EditText) view).setTextSize(25);
+                ((EditText) view).setTextSize(20);
+                ((EditText) view).setKeyListener(null);
             }
         }
     }

@@ -55,8 +55,8 @@ public class ShiftPatternActivity extends AppCompatActivity{
         daysSpinner = (Spinner) findViewById(R.id.shiftPatt_daysSpin);
         //Create an ArrayAdapter using the string days array
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.days_array,R.layout.spinner_item);
-        adapter.setDropDownViewResource(R.layout.spinner_item);
+                R.array.days_array,R.layout.spinner_item_mainscreen);
+        adapter.setDropDownViewResource(R.layout.spinner_item_mainscreen);
         daysSpinner.setAdapter(adapter);
         daysSpinner.setOnItemSelectedListener(new ShiftSpinnerListener());
         setNumberPicker();
@@ -76,7 +76,7 @@ public class ShiftPatternActivity extends AppCompatActivity{
 
     public void addShift(View v)
     {
-        //get user hours input
+        //get user hours input_login
         String startTime = ""+String.format(format, hoursStart.getValue())+":"
                 +String.format(format, minStart.getValue()),
                 endTime = ""+String.format(format, hoursEnd.getValue())+":"

@@ -32,7 +32,7 @@ import java.util.Map;
 
 public class AddEmployeeActivity extends AppCompatActivity {
     EditText firstName,lastName,id,email,address,bDay,phone;
-    TextView helloHeader;
+
     RelativeLayout loading;
     String nameOfOwner, userName ,userPermission, firstConnection, ownerId, company, tableName;
     ImageView homeIcon;
@@ -74,7 +74,6 @@ public class AddEmployeeActivity extends AppCompatActivity {
         address   = (EditText)findViewById(R.id.addEmp_addressEdit);
         bDay      = (EditText)findViewById(R.id.addEmp_birthdayEdit);
         phone     = (EditText)findViewById(R.id.addEmp_phoneEdit);
-        helloHeader = (TextView)findViewById(R.id.addEmp_helloHeader);
         loading = (RelativeLayout)findViewById(R.id.addEmp_loadingPanel);
         SharedPreferences sharedPreferences = getSharedPreferences(getResources().getString(R.string.SHARED_PREFERENCES_NAME),MODE_PRIVATE);
 
@@ -86,7 +85,6 @@ public class AddEmployeeActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        helloHeader.setText("Hello, "+User.firstName);
         nameOfOwner = User.firstName+" "+User.lastName;
         ownerId = User.ownerId;
         company = User.company;

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
@@ -59,7 +60,7 @@ public class ShiftPatternAdapter extends BaseAdapter {
         shift.setText(correctShift.toTimeString()+"\n"+correctShift.getEmployNum()+" employees");
 
         //set edit button
-        Button edit = (Button) recycleView.findViewById(R.id.shift_edit);
+        ImageView edit = (ImageView) recycleView.findViewById(R.id.shift_edit);
         edit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //get edit shift details
@@ -103,7 +104,7 @@ public class ShiftPatternAdapter extends BaseAdapter {
                 save.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //get user hours input
+                        //get user hours input_login
                         String format = "%02d",
                                 startTime = ""+String.format(format, hoursStart.getValue())+":"
                                         +String.format(format, minStart.getValue()),
@@ -154,7 +155,7 @@ public class ShiftPatternAdapter extends BaseAdapter {
         });
 
         //set delete button
-        Button delete = (Button) recycleView.findViewById(R.id.shift_delete);
+        ImageView delete = (ImageView) recycleView.findViewById(R.id.shift_delete);
         delete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //remove from local data

@@ -1,41 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
 
-    <TextView
-        android:id="@+id/editprofile_hello_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:textColor="#2a2fbf"
-        android:textSize="20sp"
-        android:gravity="center"/>
     <TextView
         android:id="@+id/editprofile_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editprofile_hello_header"
-        android:layout_marginTop="20sp"
-        android:textSize="24sp"
+        style="@style/Headers"
         android:gravity="center"
-        android:text="Edit your Profile"/>
+        android:text="Edit Your Profile"/>
     <TextView
         android:id="@+id/editprofile_nameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name: "
-        android:textSize="18sp"
         android:layout_marginTop="10dp"
         android:layout_alignParentLeft="true"
-        android:textColor="#11668d"
-        android:textStyle="bold"
+        style="@style/SubHeader"
         android:layout_below="@id/editprofile_header"/>
     <TextView
         android:id="@+id/editprofile_nameTextEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        style="@style/Text"
         android:layout_marginLeft="10sp"
         android:layout_marginTop="10dp"
         android:text="your name"
@@ -47,16 +36,14 @@
         android:layout_height="wrap_content"
         android:text="Username: "
         android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:textColor="#11668d"
-        android:textSize="18sp"
+        style="@style/SubHeader"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/editprofile_nameText"/>
     <TextView
         android:id="@+id/editprofile_userNameTextEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        style="@style/Text"
         android:layout_marginLeft="10sp"
         android:layout_marginTop="10dp"
         android:text="username"
@@ -68,55 +55,56 @@
         android:layout_height="wrap_content"
         android:text="Email: "
         android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:textSize="18sp"
+        style="@style/SubHeader"
         android:layout_alignParentLeft="true"
-        android:textColor="#11668d"
         android:layout_below="@id/editprofile_userNameText"/>
     <TextView
         android:id="@+id/editprofile_emailTextEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        style="@style/Text"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10sp"
         android:text="email"
         android:layout_toRightOf="@id/editprofile_emailText"
         android:layout_below="@id/editprofile_userNameText"/>
     <EditText
+        style="@style/Inputs"
         android:id="@+id/editprofile_addressEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Address: "
         android:layout_marginTop="10dp"
-        android:textSize="18sp"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/editprofile_emailText"/>
 
     <EditText
+        style="@style/Inputs"
         android:id="@+id/editprofile_phoneEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Phone number: "
         android:layout_marginTop="10dp"
-        android:textSize="18sp"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/editprofile_addressEditText"/>
     <Button
+        android:background="@drawable/btn"
         android:id="@+id/editprofile_changePass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="change password?"
+        android:padding="10dp"
         android:layout_marginTop="10dp"
-        android:textColor="#ff0000"
         android:layout_below="@id/editprofile_phoneEditText"
         android:onClick="changePass"/>
 
     <Button
+        android:background="@drawable/btn"
         android:id="@+id/editprofile_btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
         android:layout_centerInParent="true"
         android:text="Save"
         android:onClick="save"/>
@@ -136,9 +124,10 @@
         android:id="@+id/homeIcon_editProfile"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:background="@drawable/home_icon"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:background="@mipmap/home_icon"/>
+        />
 
 
 </RelativeLayout>

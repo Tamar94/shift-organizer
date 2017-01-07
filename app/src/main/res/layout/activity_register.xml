@@ -1,115 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent">
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="40dp"
-    android:background="@mipmap/back_register">
-
-    <TextView
+        android:paddingTop="10dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+   >
+    <RelativeLayout
+        android:layout_centerHorizontal="true"
         android:id="@+id/register_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="#FFF"
-        android:text="Register"
-        android:textSize="24sp"/>
+        android:layout_marginBottom="12dp">
+        <TextView
+            android:id="@+id/headertext"
+            android:layout_centerInParent="true"
+            style="@style/Headers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            />
+        <ImageView
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:background="@drawable/reg"
+            android:layout_marginRight="15dp"
+           android:layout_toLeftOf="@id/headertext"
+            />
+
+
+    </RelativeLayout>
+
+
     <EditText
+        style="@style/Inputs"
         android:id="@+id/register_firstNameEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/register_header"
         android:hint="First name"
-        android:textColorHint="#999"
-        android:textColor="#FFF"
-        android:layout_alignParentLeft="true"/>
+        />
     <EditText
+        style="@style/Inputs"
         android:id="@+id/register_lastNameEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/register_firstNameEdit"
-        android:hint="Last name"
-        android:textColor="#FFF"
-        android:textColorHint="#999"
-        android:layout_alignParentLeft="true"/>
+        android:hint="Last name" />
     <EditText
+        style="@style/Inputs"
         android:id="@+id/register_emailEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/register_lastNameEdit"
         android:hint="Email"
-        android:textColor="#FFF"
-        android:textColorHint="#999"
-        android:layout_alignParentLeft="true"
         android:inputType="textEmailAddress" />
     <EditText
+        style="@style/Inputs"
         android:id="@+id/register_passwordEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:layout_below="@id/register_emailEdit"
         android:hint="Password"
-        android:textColor="#FFF"
-        android:textColorHint="#999"
-        android:layout_alignParentLeft="true"/>
+        />
     <EditText
+        style="@style/Inputs"
         android:id="@+id/register_rePasswordEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:layout_below="@id/register_passwordEdit"
         android:hint="Retype password"
-        android:textColorHint="#999"
-        android:textColor="#FFF"
-        android:layout_alignParentLeft="true"/>
+        />
     <EditText
+        style="@style/Inputs"
         android:id="@+id/register_idEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/register_rePasswordEdit"
         android:hint="ID"
-        android:textColorHint="#999"
-        android:textColor="#FFF"
-        android:layout_alignParentLeft="true"
         android:inputType="number" />
     <EditText
+        style="@style/Inputs"
         android:id="@+id/register_companyEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/register_idEdit"
         android:hint="Company name"
-        android:textColorHint="#999"
-        android:textColor="#FFF"
-        android:layout_alignParentLeft="true"/>
+       />
     <EditText
+        style="@style/Inputs"
         android:id="@+id/register_phoneEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/register_companyEdit"
         android:hint="Phone number"
-        android:textColorHint="#999"
-        android:textColor="#FFF"
-        android:layout_alignParentLeft="true"
         android:inputType="number" />
     <EditText
+        style="@style/Inputs"
         android:id="@+id/register_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/register_phoneEdit"
         android:hint="Address"
-        android:textColorHint="#999"
-        android:textColor="#FFF"
-        android:layout_alignParentLeft="true"/>
+       />
     <EditText
+        style="@style/Inputs"
         android:id="@+id/register_birthDay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/register_address"
         android:hint="Birthday (dd/MM/YYYY)"
-        android:textColorHint="#999"
-        android:textColor="#FFF"
-        android:layout_alignParentLeft="true"
         android:inputType="date" />
 
     <Button
@@ -118,7 +122,7 @@
         android:layout_below="@id/register_birthDay"
         android:layout_alignParentRight="true"
         android:text="Done"
-        android:background="@drawable/selector_xml_btn_yellow"
+        android:background="@drawable/btn"
         android:onClick="registerBtn"/>
     <Button
         android:layout_width="wrap_content"
@@ -126,8 +130,9 @@
         android:layout_alignParentLeft="true"
         android:text="back"
         android:layout_below="@id/register_birthDay"
-        android:background="@drawable/selector_xml_btn_yellow"
-        android:onClick="goBackBtn"/>
+        android:background="@drawable/btn"
+        android:onClick="goBackBtn"
+        android:layout_marginBottom="25dp"/>
     <RelativeLayout
         android:id="@+id/register_loadingPanel"
         android:layout_width="match_parent"

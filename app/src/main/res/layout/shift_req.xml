@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#94F084"
-    >
+    android:padding="7dp">
+
 <TextView
     android:id="@+id/time_text"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:gravity="center"
-    android:textSize="20sp"
+    style="@style/Text"
+    android:layout_centerVertical="true"
     />
-</LinearLayout>
+
+    <android.support.v7.widget.SwitchCompat
+        app:showText="true"
+        android:id="@+id/switch_req"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="Can't Work"
+        android:textOn="Can Work"
+        android:thumb="@drawable/thumb"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        app:track="@drawable/track"/>
+
+
+</RelativeLayout>

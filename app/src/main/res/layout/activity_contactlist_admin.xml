@@ -2,22 +2,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+
     <ImageView
         android:id="@+id/homeIcon"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_alignParentRight="true"
+        android:background="@drawable/home_icon"
         android:layout_alignParentBottom="true"
-        android:background="@mipmap/home_icon"/>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
     <TextView
+        style="@style/Headers"
         android:id="@+id/contact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:text="Contact List Admin"
-        android:layout_alignParentTop="true"
-        android:textColor="#0b3dd2"/>
+        android:gravity="center"
+        android:text="Contact List"
+        android:layout_alignParentTop="true" />
     <Spinner
         android:id="@+id/contact_spinner"
         android:layout_below="@id/contact"
@@ -43,16 +47,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="First Name"
-            android:textSize="18sp"
-            android:textColor="#0a427c"/>
+           style="@style/SubHeader"/>
         <TextView
             android:id="@+id/contactList_firstName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="the name"
-            android:textSize="18sp"
-            android:textColor="#44abea"/>
+            style="@style/Text"/>
     </LinearLayout>
 
     <LinearLayout
@@ -67,16 +69,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Last Name"
-            android:textSize="18sp"
-            android:textColor="#0a427c"/>
+            style="@style/SubHeader"/>
         <TextView
             android:id="@+id/contactList_lastName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="the name"
-            android:textSize="18sp"
-            android:textColor="#44abea"/>
+            style="@style/Text"/>
     </LinearLayout>
 
     <LinearLayout
@@ -91,16 +91,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Phone Number"
-            android:textSize="18sp"
-            android:textColor="#0a427c"/>
+            style="@style/SubHeader"/>
         <TextView
             android:id="@+id/contactList_phoneNumber"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="the number"
-            android:textSize="18sp"
-            android:textColor="#44abea"/>
+            style="@style/Text"/>
     </LinearLayout>
 
     <LinearLayout
@@ -115,16 +113,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="ID"
-            android:textSize="18sp"
-            android:textColor="#0a427c"/>
+            style="@style/SubHeader"/>
         <TextView
             android:id="@+id/contactList_id"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="the id number"
-            android:textSize="18sp"
-            android:textColor="#44abea"/>
+            style="@style/Text"/>
     </LinearLayout>
 
     <LinearLayout
@@ -139,16 +135,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Address"
-            android:textSize="18sp"
-            android:textColor="#0a427c"/>
+            style="@style/SubHeader"/>
         <TextView
             android:id="@+id/contactList_address"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="the address"
-            android:textSize="18sp"
-            android:textColor="#44abea"/>
+            style="@style/Text"/>
     </LinearLayout>
 
     <LinearLayout
@@ -163,16 +157,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="BirthDay"
-            android:textSize="18sp"
-            android:textColor="#0a427c"/>
+            style="@style/SubHeader"/>
         <TextView
             android:id="@+id/contactList_birthDay"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="birthday date"
-            android:textSize="18sp"
-            android:textColor="#44abea"/>
+            style="@style/Text"/>
     </LinearLayout>
 
     <LinearLayout
@@ -187,30 +179,29 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Email"
-            android:textSize="18sp"
-            android:textColor="#0a427c"/>
+            style="@style/SubHeader"/>
         <TextView
             android:id="@+id/contactList_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="email address"
-            android:textSize="18sp"
-            android:textColor="#44abea"/>
+            style="@style/Text"/>
     </LinearLayout>
 
 
-    <Button
+    <ImageView
         android:id="@+id/addEmp_delete"
-        android:layout_width="51dp"
-        android:layout_height="41dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/garbage_icon"
         android:layout_marginTop="45sp"
-        android:layout_marginRight="15dp"
-        android:layout_alignParentRight="true"
+       android:layout_centerHorizontal="true"
         android:layout_below="@id/seventhLinear"
-        android:background="@drawable/remove_icon"
+
         android:onClick="delete"/>
     </RelativeLayout>
+
 
 
 </RelativeLayout>

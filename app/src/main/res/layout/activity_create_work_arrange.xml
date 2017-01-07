@@ -1,28 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+
+    <TextView
+        style="@style/Headers"
+        android:id="@+id/createArr_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Create Work Arrange"
+        android:paddingBottom="10dp"/>
+
     <RelativeLayout
         android:id="@+id/createArr_footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="5dp"
+
         >
         <Button
-            android:text="Done"
+            android:background="@drawable/btn"
+            android:text="Save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+           android:layout_centerHorizontal="true"
             android:id="@+id/createArr_doneBtn"
             android:onClick="saveArrange"
             />
         <ImageView
+            android:layout_marginTop="40dp"
             android:id="@+id/homeIcon_createWorkArrange"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="@drawable/home_icon"
             android:layout_alignParentRight="true"
-            android:background="@mipmap/home_icon"/>
+           />
 
     </RelativeLayout>
 
@@ -31,6 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/createArr_footer"
+        android:layout_below="@id/createArr_header"
         />
 
     <RelativeLayout

@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
     //"Login" Button
     public void login(View v){
         loadingCircle.setVisibility(View.VISIBLE); //starts the loading Icon rotate
-        //getting the text from Edittext that the user input
+        //getting the text from Edittext that the user input_login
         userName = this.username.getText().toString();
         String password=this.password.getText().toString();
         if (userName.length()<2 || password.length()<4){ //checking the length

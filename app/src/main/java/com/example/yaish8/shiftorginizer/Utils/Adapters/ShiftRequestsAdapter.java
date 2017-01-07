@@ -4,13 +4,18 @@ package com.example.yaish8.shiftorginizer.Utils.Adapters;
  */
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.CompoundButton;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import com.example.yaish8.shiftorginizer.R;
 import com.example.yaish8.shiftorginizer.Utils.Dates;
@@ -27,6 +32,7 @@ public class ShiftRequestsAdapter extends BaseExpandableListAdapter {
     private final Context CONTEXT;
     private final ArrayList<String> DAYS_NAME;
     private final String[] nextWeekDates;
+    static boolean isTouched = false;
     private final LinkedHashMap<String, Map<String, TreeSet<String>>> ALL_DAYS_SHIFTS_REQUESTS;
 
     public ShiftRequestsAdapter(LinkedHashMap<String, Map<String, TreeSet<String>>> allDayShiftRequests, Context context) {
@@ -108,9 +114,17 @@ public class ShiftRequestsAdapter extends BaseExpandableListAdapter {
 
             for (String correctShift : allShifts) {
                 //create view for each shift
-                LinearLayout shiftLayout = (LinearLayout) LayoutInflater.from(CONTEXT).inflate(R.layout.shift_req, null);
-                //set on click
-                shiftLayout.setOnClickListener(new ChangeShiftRequest(blockShifts, ableShifts, groupPosition));
+                RelativeLayout shiftLayout = (RelativeLayout) LayoutInflater.from(CONTEXT).inflate(R.layout.shift_req, null);
+                //set switch
+                SwitchCompat mySwitch = (SwitchCompat) shiftLayout.findViewById(R.id.switch_req);
+                mySwitch.setChecked(true);
+                mySwitch.setOnTouchListener(new View.OnTouchListener() {
+                    public boolean onTouch(View v, MotionEvent event) {
+                        isTouched = true;
+                        return false;
+                    }
+                });
+                mySwitch.setOnCheckedChangeListener(new SwitchShiftRequest(blockShifts, ableShifts, groupPosition,correctShift));
                 //set the text shift
                 TextView shift = (TextView) shiftLayout.findViewById(R.id.time_text);
                 shift.setText(correctShift);
@@ -118,8 +132,9 @@ public class ShiftRequestsAdapter extends BaseExpandableListAdapter {
                 //check if this shift is block
                 for (String temp : blockShifts) {
                     //if found correct shift - change color
-                    if (correctShift.compareTo(temp) == 0)
-                        shift.setBackgroundColor(Color.parseColor("#FA5C5C"));
+                    if (correctShift.compareTo(temp) == 0) {
+                        mySwitch.setChecked(false);
+                    }
                 }
 
                 allShiftsLayout.addView(shiftLayout);
@@ -128,11 +143,10 @@ public class ShiftRequestsAdapter extends BaseExpandableListAdapter {
         else
         {
             //create view
-            LinearLayout shiftLayout = (LinearLayout) LayoutInflater.from(CONTEXT).inflate(R.layout.shift_req, null);
+            RelativeLayout shiftLayout = (RelativeLayout) LayoutInflater.from(CONTEXT).inflate(R.layout.shift_req, null);
             //set the text shift
             TextView noShift = (TextView) shiftLayout.findViewById(R.id.time_text);
             noShift.setText("No Shifts");
-            noShift.setBackgroundColor(Color.WHITE);
             allShiftsLayout.addView(shiftLayout);
         }
 
@@ -144,12 +158,12 @@ public class ShiftRequestsAdapter extends BaseExpandableListAdapter {
         return true;
     }
 
-    private class ChangeShiftRequest implements View.OnClickListener
-    {
+    private class SwitchShiftRequest implements CompoundButton.OnCheckedChangeListener{
         private final TreeSet<String> BLOCK,ABLE;
-        private boolean isBlock;
         private int dayIndex;
-        ChangeShiftRequest(TreeSet<String> block,TreeSet<String> able, int day)
+        private String shift;
+
+        SwitchShiftRequest(TreeSet<String> block,TreeSet<String> able, int day, String shift)
         {
             if (block==null)
                 BLOCK = new TreeSet<>();
@@ -159,72 +173,67 @@ public class ShiftRequestsAdapter extends BaseExpandableListAdapter {
                 ABLE = new TreeSet<>();
             else
                 ABLE = able;
-            isBlock = false;
+            this.shift = shift;
             dayIndex = day;
         }
 
         @Override
-        public void onClick(View v) {
-            TextView textShift = (TextView) ((LinearLayout) v).getChildAt(0);
-            String correctShift = textShift.getText().toString();
-
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            Iterator<String> iterator;
             String temp;
-            //search in block set
-            Iterator<String> iterator = BLOCK.iterator();
-            while (iterator.hasNext()) {
-                temp = iterator.next();
-                //find if the selected shift is in the block set(compareTo return 0 = equal)
-                if (correctShift.compareTo(temp) == 0) {
-                    isBlock = true;
-                    v.setBackgroundColor(Color.parseColor("#94F084"));
-                    //transfer the shift to the able set
-                    iterator.remove();
-                    ABLE.add(correctShift);
-                }
-            }
-
-            //only if the shift isn't in the block set - search it in able set
-            if (!isBlock) {
-                iterator = ABLE.iterator();
-                while (iterator.hasNext()) {
-                    temp = iterator.next();
-                    //find if the selected shift is in the able set(compareTo return 0 = equal)
-                    if (correctShift.compareTo(temp) == 0) {
-                        v.setBackgroundColor(Color.parseColor("#FA5C5C"));
-                        //transfer the shift to the block set
-                        iterator.remove();
-                        BLOCK.add(correctShift);
+            if (isTouched) {
+                isTouched = false;
+                if (isChecked) {
+                    iterator = BLOCK.iterator();
+                    while (iterator.hasNext()) {
+                        temp = iterator.next();
+                        //find the selected shift in the block set(compareTo return 0 = equal)
+                        if (shift.compareTo(temp) == 0) {
+                            //transfer the shift to the block set
+                            iterator.remove();
+                            ABLE.add(shift);
+                        }
+                    }
+                } else {
+                    iterator = ABLE.iterator();
+                    while (iterator.hasNext()) {
+                        temp = iterator.next();
+                        //find the selected shift in the able set(compareTo return 0 = equal)
+                        if (shift.compareTo(temp) == 0) {
+                            //transfer the shift to the block set
+                            iterator.remove();
+                            BLOCK.add(shift);
+                        }
                     }
                 }
-            }
+                Map<String, TreeSet<String>> allShifts = new HashMap<>();
+                allShifts.put("able", ABLE);
+                allShifts.put("block", BLOCK);
+                //get the activity data
+                Map<String, TreeSet<String>>[] daysReqArray = ShiftRequestsActivity.getDaysReqArray();
+                //update the Activity data
+                daysReqArray[dayIndex] = allShifts;
 
-            Map<String, TreeSet<String>> allShifts = new HashMap<>();
-            allShifts.put("able", ABLE);
-            allShifts.put("block", BLOCK);
-            //get the activity data
-            Map<String, TreeSet<String>>[] daysReqArray = ShiftRequestsActivity.getDaysReqArray();
-            //update the Activity data
-            daysReqArray[dayIndex] = allShifts;
+                //set the list view with the new data
+                ExpandableListView newListView = ShiftRequestsActivity.getListView();
+                LinkedHashMap<String, Map<String, TreeSet<String>>> allDaysShift = new LinkedHashMap<>();
+                for (int i = 0; i < daysReqArray.length; i++) {
+                    allDaysShift.put(DAYS_NAME.get(i), daysReqArray[i]);
+                }
 
-            //set the list view with the new data
-            ExpandableListView newListView = ShiftRequestsActivity.getListView();
-            LinkedHashMap<String, Map<String, TreeSet<String>>> allDaysShift = new LinkedHashMap<>();
-            for (int i = 0; i < daysReqArray.length; i++) {
-                allDaysShift.put(DAYS_NAME.get(i), daysReqArray[i]);
-            }
-
-            //save expanded days
-            ArrayList<Integer> expandedDays = new ArrayList<>();
-            for (int i = 0; i < DAYS_NAME.size(); i++) {
-                if (newListView.isGroupExpanded(i))
-                    expandedDays.add(i);
-            }
-            //set adapter
-            newListView.setAdapter(new ShiftRequestsAdapter(allDaysShift, CONTEXT));
-            //set expanded days
-            for (Integer day : expandedDays) {
-                if (!newListView.isGroupExpanded(day))
-                    newListView.expandGroup(day);
+                //save expanded days
+                ArrayList<Integer> expandedDays = new ArrayList<>();
+                for (int i = 0; i < DAYS_NAME.size(); i++) {
+                    if (newListView.isGroupExpanded(i))
+                        expandedDays.add(i);
+                }
+                //set adapter
+                newListView.setAdapter(new ShiftRequestsAdapter(allDaysShift, CONTEXT));
+                //set expanded days
+                for (Integer day : expandedDays) {
+                    if (!newListView.isGroupExpanded(day))
+                        newListView.expandGroup(day);
+                }
             }
         }
     }

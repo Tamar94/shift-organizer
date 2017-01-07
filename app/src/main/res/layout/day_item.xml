@@ -12,8 +12,7 @@
         android:layout_height="match_parent"
         android:text="day"
         android:gravity="center"
-        android:textSize="18sp"
-        android:textColor="#11448d"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        style="@style/SubHeader"/>
 
 </LinearLayout>

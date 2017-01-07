@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class EditProfileActivity extends AppCompatActivity {
-    TextView name,userName,email,header;
+    TextView name,userName,email;
     EditText address,phone;
     RelativeLayout loading;
     ImageView homeIcon;
@@ -57,7 +57,7 @@ public class EditProfileActivity extends AppCompatActivity {
         name = (TextView)findViewById(R.id.editprofile_nameTextEdit);
         userName = (TextView)findViewById(R.id.editprofile_userNameTextEdit);
         email = (TextView)findViewById(R.id.editprofile_emailTextEdit);
-        header = (TextView)findViewById(R.id.editprofile_hello_header);
+
         address = (EditText)findViewById(R.id.editprofile_addressEditText);
         phone = (EditText)findViewById(R.id.editprofile_phoneEditText);
         setEditTexts();
@@ -67,7 +67,7 @@ public class EditProfileActivity extends AppCompatActivity {
         name.setText(User.firstName + " " + User.lastName); //getting from User class instances..
         userName.setText(username);
         email.setText(User.email);
-        header.setText("Hello, "+User.firstName);
+
         address.setText(User.address);
         phone.setText(User.phoneNumber);
         userPass = User.password;

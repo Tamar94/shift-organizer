@@ -54,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
     //"Register" Button
     public void registerBtn(View v){
-        //getting user's input text from edittext
+        //getting user's input_login text from edittext
         final String firstName = getStringFromEditText(this.firstName);
         final String lastName = getStringFromEditText(this.lastName);
         final String email = getStringFromEditText(this.email);

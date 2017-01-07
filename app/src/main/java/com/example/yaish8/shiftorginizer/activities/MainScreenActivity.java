@@ -78,11 +78,12 @@ public class MainScreenActivity extends AppCompatActivity {
         super.onStart();
         //making the spinner and Adapter
         List spinnerList = new ArrayList();
-        spinnerList.add("Week Of: "+lastSundayReadable+" - "+thisSaturday);
-        spinnerList.add("Week Of: "+nextSundayReadable+" - "+nextSaturday);
+        spinnerList.add("This Week");
+        spinnerList.add("Next Week");
         //android.R.layout.simple_spinner_dropdown_item
         ArrayAdapter spinnerAdapter = new ArrayAdapter(this,R.layout.spinner_item_mainscreen , spinnerList);
-        spinnerAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        //spinnerAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        spinnerAdapter.setDropDownViewResource(R.layout.spinner_item_mainscreen);
         spinner.setAdapter(spinnerAdapter);
         spinner.setOnItemSelectedListener(itemSelectedListener());
         header.setText("Welcome, "+ User.firstName);
@@ -94,11 +95,11 @@ public class MainScreenActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 //checking which item selected:
-                if (spinner.getSelectedItem().toString().equalsIgnoreCase("week of: "+lastSundayReadable+ " - "+thisSaturday)){
+                if (spinner.getSelectedItem().toString().equalsIgnoreCase("This Week")){
                     loading.setVisibility(View.VISIBLE);
                      //getting the shifts from backendless and showing them in listView
                     getWorkArrange(User.company+lastSunday, thisWeekDates);
-                }else if (spinner.getSelectedItem().toString().equalsIgnoreCase("week of: "+nextSundayReadable+ " - "+nextSaturday)){
+                }else if (spinner.getSelectedItem().toString().equalsIgnoreCase("Next Week")){
                     loading.setVisibility(View.VISIBLE);
                     getWorkArrange(User.company+nextSunday, nextWeekDates);
                 }
